@@ -175,11 +175,21 @@ The following api routes have already been implemented for you (**Make sure to d
 
 This renders the `index.html` file that will be used to interact with the backend
 
-#### `GET /api/freets` - Get all the freets
+#### `GET /api/freets` - Get all the freets 
 
 **Returns**
 
 - An array of all freets sorted in descending order by date modified
+
+#### `GET /api/freets?tag=TAG` - Get freets by tag (NEW)
+
+**Returns**
+
+- An array of freets associated with the tag searched by the user
+
+**Throws**
+
+-`404` if `tag` is not associated with any Freets
 
 #### `GET /api/freets?author=USERNAME` - Get freets by author
 
@@ -268,12 +278,15 @@ This renders the `index.html` file that will be used to interact with the backen
 
 - `403` if user is not logged in
 
-#### `POST /api/users` - Create an new user account
+#### `POST /api/users` - Create an new user account (UPDATED)
 
 **Body**
 
 - `username` _{string}_ - The user's username
 - `password` _{string}_ - The user's password
+- `name` _{string}_ - The user's actual name
+- `bio` _{string}_ - A short biography about the user
+- `birthday` _{string}_ - The user's birthday
 
 **Returns**
 
