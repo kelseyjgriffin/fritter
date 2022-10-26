@@ -18,7 +18,7 @@ const router = express.Router();
 /**
  * Get freets by tag
  *
- * @name GET /api/freets?tag=tag
+ * @name GET /api/freets?tag=id
  *
  * @return {FreetResponse[]} - A list of all the freets with searched tag
  * @throws {404} - If no freet has given tag
