@@ -104,9 +104,6 @@ router.post(
  *
  * @param {string} username - The user's new username
  * @param {string} password - The user's new password
- * @param {string} name - the name of the user
- * @param {string} bio - the bio of the user
- * @param {string} birthday - the birthday of the user
  * @return {UserResponse} - The updated user
  * @throws {403} - If user is not logged in
  * @throws {409} - If username already taken
@@ -122,7 +119,7 @@ router.put(
   ],
   async (req: Request, res: Response) => {
     const userId = (req.session.userId as string) ?? ''; // Will not be an empty string since its validated in isUserLoggedIn
-    const user = await UserCollection.updateOne(userId, req.body);
+    const user = await UserCollection.updateOne(userId, req.body.);
     res.status(200).json({
       message: 'Your profile was updated successfully.',
       user: util.constructUserResponse(user)

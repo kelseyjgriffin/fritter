@@ -63,9 +63,9 @@ const isValidPassword = (req: Request, res: Response, next: NextFunction) => {
  * Checks if a user with username and password in req.body exists
  */
 const isAccountExists = async (req: Request, res: Response, next: NextFunction) => {
-  const {username, password} = req.body as {username: string; password: string};
+  const {username, password, name} = req.body as {username: string; password: string; name: string};
 
-  if (!username || !password) {
+  if (!username || !password || !name) {
     res.status(400).json({error: `Missing ${username ? 'password' : 'username'} credentials for sign in.`});
     return;
   }
