@@ -44,7 +44,7 @@ const UserSchema = new Schema({
   // the birthday of the user
   birthday: {
     type: String,
-    required: false
+    required: true
   },
   // a bio about the user
   bio: {
