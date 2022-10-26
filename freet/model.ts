@@ -55,7 +55,7 @@ const FreetSchema = new Schema<Freet>({
   // the tag assigned to the freet
   tag: {
     type: String,
-    required: true
+    required: false
   }
 });
 
