@@ -181,16 +181,6 @@ This renders the `index.html` file that will be used to interact with the backen
 
 - An array of all freets sorted in descending order by date modified
 
-#### `GET /api/freets?tag=TAG` - Get freets by tag (NEW)
-
-**Returns**
-
-- An array of freets associated with the tag searched by the user
-
-**Throws**
-
--`404` if `tag` is not associated with any Freets
-
 #### `GET /api/freets?author=USERNAME` - Get freets by author
 
 **Returns**
@@ -278,27 +268,6 @@ This renders the `index.html` file that will be used to interact with the backen
 
 - `403` if user is not logged in
 
-#### `POST /api/users` - Create an new user account (UPDATED)
-
-**Body**
-
-- `username` _{string}_ - The user's username
-- `password` _{string}_ - The user's password
-- `name` _{string}_ - The user's actual name
-- `bio` _{string}_ - A short biography about the user
-- `birthday` _{string}_ - The user's birthday
-
-**Returns**
-
-- A success message
-- An object with the created user's details (without password)
-
-**Throws**
-
-- `403` if there is a user already logged in
-- `400` if username or password is in the wrong format
-- `409` if username is already in use
-
 #### `PUT /api/users` - Update a user's profile
 
 **Body** _(no need to add fields that are not being changed)_
@@ -326,3 +295,37 @@ This renders the `index.html` file that will be used to interact with the backen
 **Throws**
 
 - `403` if the user is not logged in
+
+### New/Updated Routes
+
+#### `GET /api/freets?tag=TAG` - Get freets by tag (NEW)
+
+**Returns**
+
+- An array of freets associated with the tag searched by the user
+
+**Throws**
+
+-`404` if `tag` is not associated with any Freets
+
+#### `POST /api/users` - Create an new user account (UPDATED)
+
+**Body**
+
+- `username` _{string}_ - The user's username
+- `password` _{string}_ - The user's password
+- `name` _{string}_ - The user's actual name
+- `bio` _{string}_ - A short biography about the user
+- `birthday` _{string}_ - The user's birthday
+
+**Returns**
+
+- A success message
+- An object with the created user's details (without password)
+
+**Throws**
+
+- `403` if there is a user already logged in
+- `400` if username or password is in the wrong format
+- `409` if username is already in use
+
