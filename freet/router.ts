@@ -26,6 +26,17 @@ const router = express.Router();
  */
  router.get(
   '/',
+  async (req: Request, res: Response, next: NextFunction) => {
+    // Check if tag query parameter was supplied
+    if (req.query.tag !== undefined) {
+      next();
+      return;
+    }
+
+    const allFreets = await FreetCollection.findAll();
+    const response = allFreets.map(util.constructFreetResponse);
+    res.status(200).json(response);
+  },
   async (req: Request, res: Response) => {
     const tagFreets = await FreetCollection.findAllByTag(req.query.tag as string);
     const response = tagFreets.map(util.constructFreetResponse);
